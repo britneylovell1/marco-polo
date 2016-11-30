@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -13,6 +12,17 @@
 
   <!-- Web Application Manifest -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Friendly Chat">
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Friendly Chat">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
 
   <!-- Tile icon for Win8 -->
   <meta name="msapplication-TileColor" content="#3372DF">
@@ -31,7 +41,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <body>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -44,44 +53,98 @@
         <h3><i class="material-icons">chat_bubble_outline</i> Marco Polo</h3>
       </div>
       
-      <div id="user-container">
-        <div hidden id="user-pic"></div>
-        <div hidden id="user-name"></div>
-        <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-          Sign-out
-        </button>
-        <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-          <i class="material-icons">account_circle</i>Sign-in with Google
-        </button>
+      <!-- If Marco -->
+      <div>
+        <button id="show-dialog" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Send location to Polo</button>
+        <div hidden>
+          <input type="text" name="polo-info" placeholder="email or phone number" class="mdl-textfield__input" >
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Submit</button>
+        </div>
+      </div>
+
+      <!-- If Polo -->
+      <div hidden>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Cancel Trip</button>
       </div>
     
     </div>
 
   </header>
 
+  <!-- Beginning of Map -->
+
   <main class="mdl-layout__content mdl-color--grey-100">
     <div id="map"></div>
   </main>
+
+  <!-- End of Map -->
+
+
+  <!-- Start of Dialog -->
+  <dialog class="mdl-dialog">
+
+    <div class="dialog-header">
+      <h1 class="mdl-dialog__title">Welcome to Marco Polo!</h1>
+    </div>
+
+    <div class="dialog-body">
+
+      <div class="are-you">
+
+        <div class="mdl-dialog__content">
+          <h4>Are you Marco?</h4>
+        </div>
+
+        <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+          <form>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" name="marco-name" id="marco-name">
+              <label class="mdl-textfield__label" for="marco-name">your name</label>
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Find me</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="are-you border-left">
+
+        <div class="mdl-dialog__content">
+          <h4>Are you Polo?</h4>
+        </div>
+
+        <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+          <form>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" name="polo-name" id="polo-name">
+              <label class="mdl-textfield__label" for="polo-name">your name</label>
+            </div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" name="access-code" id="access-code">
+              <label class="mdl-textfield__label" for="access-code">access code</label>
+
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Find Marco</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </dialog>
+
+  <!-- End of Dialog -->
   
 </div>
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyC84pCwGCUFhjHRmvxnnMF0JuwtNoX8I-U",
-    authDomain: "marco-polo-d7139.firebaseapp.com",
-    databaseURL: "https://marco-polo-d7139.firebaseio.com",
-    storageBucket: "marco-polo-d7139.appspot.com",
-    messagingSenderId: "182864801106"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<script src="scripts/main.js"></script>
 
 <!-- GOOGLE MAPS SRC  -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuPZ9vV76biNnQaD1sMsjPxoHssKo2iHc&callback=initMap"></script>
+
+<script src="scripts/main.js"></script>
+
 </body>
 </html>
