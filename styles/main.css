@@ -213,20 +213,60 @@ main, #messages-card {
   text-align: center;
 
 }
+.mdl-dialog__actions>* {
+    margin-right: 8px;
+    height: inherit;
+}
 .mdl-dialog-button {
   background-color: #0288d1;
 }
+dialog {
+  padding: 0;
+}
 .dialog-header {
   text-align: center;
-  width: 100%;
+  flex: 1 100%;
 }
-.dialog-body {
-  width: 100%;
+/*.dialog-body {
+  flex: 1 100%;
+}*/
+.dialog-body-wrapper {
+  flex: 1 100%;
+  padding: 0;
+  margin: 0;
+  /*display: inline-flex;*/
+  display: flex;
+  /*flex-wrap: nowrap;*/
+  flex-direction: row;
+  align-items: flex-start;
 }
-.are-you {
-  width: 49%;
-  float: left;
+/*.clearfix:after,
+.clearfix:before {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;  
+}*/
+/*.clear {
+  clear: both;
+}*/
+.prompt-container {
+  /*display: flex;*/
+  flex-direction: column;
+  /*flex-grow: 1;*/
+  padding: 2em;
+  width: 50%;
+  /*justify-content: center;*/
 }
 .border-left {
   border-left: 1px solid #ccc;
+}
+.flex-container {
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+  max-width: 750px;
+}
+.row {
+  justify-content: space-between;
 }
