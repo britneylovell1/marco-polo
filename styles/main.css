@@ -191,6 +191,9 @@ main, #messages-card {
     height: 33px;
     background-size: 33px;
   }
+  .dialog-body-wrapper {
+    flex-wrap: wrap;
+  }
 }
 .mdl-textfield__label:after {
   background-color: #0288D1;
@@ -219,6 +222,9 @@ main, #messages-card {
 }
 .mdl-dialog-button {
   background-color: #0288d1;
+}
+.mdl-dialog-button:hover {
+  background-color: #4dabde; 
 }
 dialog {
   padding: 0;
@@ -270,3 +276,23 @@ dialog {
 .row {
   justify-content: space-between;
 }
+.center {
+  justify-content: space-around;
+}
+#found {
+  max-width: 412px;
+}
+.found-button {
+  padding: 1em;
+}
+.found-button-container {
+  flex-direction: row;
+  padding: 2em;
+  justify-content: center;
+}
+#login-error {
+  padding: 2em;
+  text-align: center;
+  max-width: 418px;
+}
+

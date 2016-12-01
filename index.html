@@ -84,65 +84,19 @@
 
 
   <!-- Start of Dialog -->
-  <dialog class="mdl-dialog flex-container">
-
+  <dialog id="login-error" class="mdl-dialog">
     <div class="dialog-header">
-      <h1 class="mdl-dialog__title">Welcome to Marco Polo!</h1>
+      <h1 class="mdl-dialog__title">Uh-oh!</h1>
     </div>
 
-    <!-- <div class="dialog-body"> -->
-      <div class="dialog-body-wrapper">
-        <div class="prompt-container">
+    <div class="mdl-dialog__content">
+      <p> Sorry, a Marco with that access code does not exist. Check the access code and try again. Or login as a Marco to find your location.
+      </p>
+    </div>
 
-          <div class="mdl-dialog__content">
-            <h4>Are you Marco?</h4>
-          </div>
-
-          <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-            <form>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                <input class="mdl-textfield__input" type="text" name="marco-name" id="marco-name">
-                <label class="mdl-textfield__label" for="marco-name">your name</label>
-              </div>
-              <div class="">
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Find me</button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-
-        <div class="prompt-container border-left">
-
-          <div class="mdl-dialog__content">
-            <h4>Are you Polo?</h4>
-          </div>
-
-          <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-            <form>
-              <div class="row">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                  <input class="mdl-textfield__input" type="text" name="polo-name" id="polo-name">
-                  <label class="mdl-textfield__label" for="polo-name">your name</label>
-                </div>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                  <input class="mdl-textfield__input" type="text" name="access-code" id="access-code">
-                  <label class="mdl-textfield__label" for="access-code">access code</label>
-                </div>
-                <div class="">
-                  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Find Marco</button>
-                </div>
-              </div>
-            </form>
-          </div>
-
-        </div>
-        
-      </div>
-
-
-    <!-- </div> -->
+    <div class="mdl-dialog__actions mdl-dialog__actions">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Try Again</button>
+    </div>
 
   </dialog>
 
