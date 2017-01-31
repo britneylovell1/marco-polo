@@ -140,6 +140,7 @@ main, #messages-card {
   padding-left: 10px;
   justify-content: flex-end;
   padding-right: 10px;
+  margin-right: 65px;
 }
 #user-container #user-pic {
   top: -3px;
@@ -294,5 +295,8 @@ dialog {
   padding: 2em;
   text-align: center;
   max-width: 418px;
+}
+dialog {
+  z-index: 100000;
 }
 

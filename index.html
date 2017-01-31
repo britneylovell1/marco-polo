@@ -38,6 +38,9 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- App Styling -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="styles/main.css">
@@ -53,12 +56,13 @@
     <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
       
       <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <h3><i class="material-icons">chat_bubble_outline</i> Marco Polo</h3>
+        <!-- <h3><i class="fa fa-compass" aria-hidden="true"></i> Marco Polo</h3> -->
+        <h3><i class="material-icons">location_on</i> Marco Polo</h3>
       </div>
       
       <!-- If Marco -->
-      <div>
-        <button id="show-dialog" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Send location to Polo</button>
+      <div id="user-container">
+        <button id="show-dialog" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white"><i class="material-icons">send</i></button>
         <div hidden>
           <input type="text" name="polo-info" placeholder="email or phone number" class="mdl-textfield__input" >
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">Submit</button>
@@ -84,22 +88,81 @@
 
 
   <!-- Start of Dialog -->
-  <dialog id="login-error" class="mdl-dialog">
+  <dialog id="welcome" class="mdl-dialog flex-container">
+
     <div class="dialog-header">
-      <h1 class="mdl-dialog__title">Uh-oh!</h1>
+      <h1 class="mdl-dialog__title">Welcome to Marco Polo!</h1>
     </div>
 
-    <div class="mdl-dialog__content">
-      <p> Sorry, a Marco with that access code does not exist. Check the access code and try again. Or login as a Marco to find your location.
-      </p>
-    </div>
+      <div class="dialog-body-wrapper">
+        <div class="prompt-container">
 
-    <div class="mdl-dialog__actions mdl-dialog__actions">
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Try Again</button>
-    </div>
+          <div class="mdl-dialog__content">
+            <h4>Are you Marco?</h4>
+          </div>
+
+          <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+            <form id="welcome-form">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                <input class="mdl-textfield__input" type="text" name="marco-name" id="marco-name">
+                <label class="mdl-textfield__label" for="marco-name">your name</label>
+              </div>
+              <div class="">
+                <button id="marco-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Find me</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="prompt-container border-left">
+
+          <div class="mdl-dialog__content">
+            <h4>Are you Polo?</h4>
+          </div>
+
+          <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+            <form>
+              <div class="row">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                  <input class="mdl-textfield__input" type="text" name="polo-name" id="polo-name">
+                  <label class="mdl-textfield__label" for="polo-name">your name</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                  <input class="mdl-textfield__input" type="text" name="access-code" id="access-code">
+                  <label class="mdl-textfield__label" for="access-code">access code</label>
+                </div>
+                <div class="">
+                  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Find Marco</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+        
+      </div>
 
   </dialog>
 
+  <dialog id="found" class="mdl-dialog">
+
+    <div class="mdl-dialog__content">
+      <h4 class="mdl-dialog__title">Congratulations! You've found each other!</h4>
+    </div>
+
+    <div class="mdl-dialog__actions mdl-dialog__actions found-button-container">
+    <div class="found-button">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">Try Again</button>
+    </div>
+    <div class="found-button">
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-dialog-button close">All Done</button>
+    </div>
+    </div>
+
+  </dialog>
+  
   <!-- End of Dialog -->
   
 </div>
@@ -111,6 +174,8 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuPZ9vV76biNnQaD1sMsjPxoHssKo2iHc&callback=initMap"></script>
 
 <script src="scripts/main.js"></script>
+<script src="scripts/firebase.js"></script>
+<script src="scripts/map.js"></script>
 
 </body>
 </html>

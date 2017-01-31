@@ -1,0 +1,26 @@
+{
+  "name": "marco-polo",
+  "version": "1.0.0",
+  "description": "directional service between two users",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/britneylovell1/marco-polo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/britneylovell1/marco-polo/issues"
+  },
+  "homepage": "https://github.com/britneylovell1/marco-polo#readme",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-animate": "^1.5.9",
+    "angular-aria": "^1.5.9",
+    "angular-material": "^1.1.1",
+    "swig": "^1.4.2"
+  }
+}

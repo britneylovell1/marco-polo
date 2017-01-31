@@ -18,34 +18,6 @@
 
 'use strict';
 
-// Initialize Google Maps
-function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 40.7128, lng: -74.0059},
-        zoom: 5
-    });
-
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
-    directionsDisplay.setMap(map);
-
-    // google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
-    //     startApp();
-    // });
-}
-
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyC84pCwGCUFhjHRmvxnnMF0JuwtNoX8I-U",
-  authDomain: "marco-polo-d7139.firebaseapp.com",
-  databaseURL: "https://marco-polo-d7139.firebaseio.com",
-  storageBucket: "marco-polo-d7139.appspot.com",
-  messagingSenderId: "182864801106"
-};
-
-firebase.initializeApp(config);
-
-
 // Initializes MarcoPolo.
 function MarcoPolo() {
   this.checkSetup();
@@ -69,7 +41,7 @@ MarcoPolo.prototype.initFirebase = function() {
 
 // Signs-in Friendly Chat.
 MarcoPolo.prototype.signIn = function() {
-  console.log('signed in')
+  console.log('signed in');
   var dialog = document.querySelector('dialog');
   var showDialogButton = document.querySelector('body');
   // Polyfill required for browsers !== Chrome
@@ -79,6 +51,11 @@ MarcoPolo.prototype.signIn = function() {
   showDialogButton.addEventListener('click', function() {
     dialog.showModal();
   });
+
+  // dialog.showModal();
+
+  // document.getElementById('welcome').showModal();
+
   // Sign in Firebase anonymously
   // firebase.auth().signInAnonymously()
 
